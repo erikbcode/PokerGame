@@ -32,7 +32,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("pokergame.App")
+    mainClass.set("pokergame.Deck")
 }
 
 tasks.named<Test>("test") {
