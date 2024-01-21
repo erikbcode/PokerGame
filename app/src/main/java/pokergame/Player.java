@@ -25,17 +25,7 @@ public class Player {
   }
 
   public void addChips(int chips) {
-    try {
-      if (chipCount + chips > table.MAX_CHIPS) {
-        throw new IllegalChipAddException("The maximum number of chips at this table is " + table.MAX_CHIPS);
-      }
-      if (bankroll - chips < 0) {
-        throw new InsufficientBankrollException("Player does not have enough money to add that amount of chips");
-      }
-      this.chipCount += chips;
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-    }
+    this.chipCount += chips;
   }
 
   public void bet(int betAmount) throws InsufficientChipStackException {
