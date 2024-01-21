@@ -32,7 +32,11 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("pokergame.Deck")
+    mainClass.set("pokergame.PokerGameRunner")
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
 
 tasks.named<Test>("test") {
