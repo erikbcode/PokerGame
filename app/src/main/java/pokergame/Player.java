@@ -28,6 +28,20 @@ public class Player {
     this.chipCount += chips;
   }
 
+  public void validateChipAdd(int chips) throws IllegalChipAddException, InsufficientBankrollException {
+    if (table == null) {
+      throw new IllegalChipAddException("Player cannot add chips if they are not at a table");
+    }
+
+    if (chipCount + chips > table.getMaxChips()) {
+      throw new IllegalChipAddException("Cannot add chips above the max starting buy-in");
+    }
+
+    if (bankroll - chips < 0) {
+      throw new InsufficientBankrollException("Cannot add more chips than player has in bankroll");
+    }
+  }
+
   public void bet(int betAmount) throws InsufficientChipStackException {
     if (betAmount > chipCount) {
       StringBuilder str = new StringBuilder();
