@@ -14,8 +14,8 @@ public class Table {
   private int pot;
   private Set<Player> seatedPlayers;
   private Set<Player> activePlayers;
-  public final int MAX_PLAYERS = 9;
-  public final int MAX_CHIPS = 300;
+  private final int MAX_PLAYERS = 9;
+  private final int MAX_CHIPS = 300;
   private int smallBlindPosition;
   private int bigBlindPosition;
   private List<Card> boardCards;
@@ -95,6 +95,15 @@ public class Table {
   public void clearBoardCards() {
     this.boardCards.clear();
   }
+
+  public int getMaxPlayers() {
+    return this.MAX_PLAYERS;
+  }
+
+  public int getMaxChips() {
+    return this.MAX_CHIPS;
+  }
+
 
 
 }
