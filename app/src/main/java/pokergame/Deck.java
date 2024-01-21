@@ -2,52 +2,33 @@ package pokergame;
 
 import java.util.Random;
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
 
 public class Deck {
 
-  private Card[] deck = new Card[52];
+  private List<Card> cards = new ArrayList<Card>();
   public final int DECK_SIZE = 52;
 
   public Deck() {
-    int counter = 0;
-
     for (Suit suit : Suit.values()) {
       for (Rank rank : Rank.values()) {
-        deck[counter] = new Card(suit, rank);
-        counter ++;
+        cards.add(new Card(suit, rank));
       }
     }
   }
 
-  public Card[] getDeck() {
-    return deck;
+  public List<Card> getDeck() {
+    return cards;
   }
 
   public void shuffleCards() {
-    Random random = new Random();
-
-    for (int i = DECK_SIZE-1; i > 0; i--) {
-
-      int randomInd = random.nextInt(i);
-
-      Card tempCard = deck[i];
-      deck[i] = deck[randomInd];
-      deck[randomInd] = tempCard;
-    }
+    Collections.shuffle(cards);
   }
 
-  public static void main(String [] args) {
-    Deck deck = new Deck();
-    
-    Card[] originalDeck = deck.getDeck();
-    // Shuffle cards to reduce likelihood that cards are in the same order;
-    deck.shuffleCards();
-
-    Card[] newDeck = deck.getDeck();
-    System.out.println(Arrays.toString(originalDeck));
-
-    System.out.println(Arrays.toString(newDeck));
-
+  public Card drawCard() {
+    return this.cards.remove(0);
   }
 
 }
