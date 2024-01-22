@@ -40,4 +40,23 @@ public class PlayerTest {
 
     Assert.assertEquals(player.getChipCount(), 100);
   }
+
+  @Test(expectedExceptions = InsufficientChipStackException.class)
+  public void testInvalidBetInsufficientChips() throws InsufficientChipStackException {
+    Player player = new Player(300);
+
+    player.bet(301);
+  }
+
+  @Test
+  public void testFold() {
+    Player player = new Player(300);
+
+    player.getHand().addCard(new Card(Suit.HEART, Rank.ACE));
+    player.getHand().addCard(new Card(Suit.SPADE, Rank.ACE));
+
+    player.fold();
+
+    Assert.assertTrue(player.getHand().getCards().isEmpty());
+  }
 }
