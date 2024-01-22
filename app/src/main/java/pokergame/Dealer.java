@@ -5,13 +5,14 @@ import pokergame.exceptions.MisdealException;
 
 public class Dealer {
   
-  private String name;
-  private PokerGame pokerGame;
   private Table pokerTable;
 
-  public Dealer(String name) {
-    this.name = name;
+  public Dealer() {
     this.pokerTable = null;
+  }
+
+  public Dealer(Table pokerTable) {
+    this.pokerTable = pokerTable;
   }
 
   public void sitAtTable(Table table) {
