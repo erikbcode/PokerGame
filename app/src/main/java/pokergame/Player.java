@@ -9,19 +9,12 @@ public class Player {
   private String name;
   private int chipCount;
   private Table table;
-  private int bankroll;
   private Hand hand;
-  private boolean isSmallBlind;
-  private boolean isBigBlind;
-  private int seatNumber;
 
   public Player(int money) {
     this.chipCount = money;
     this.table = null;
-    this.bankroll = money;
     this.hand = new Hand();
-    this.isSmallBlind = false;
-    this.isBigBlind = false;
   }
 
   public void addChips(int chips) {
@@ -35,10 +28,6 @@ public class Player {
 
     if (chipCount + chips > table.getMaxChips()) {
       throw new IllegalChipAddException("Cannot add chips above the max starting buy-in");
-    }
-
-    if (bankroll - chips < 0) {
-      throw new InsufficientBankrollException("Cannot add more chips than player has in bankroll");
     }
   }
 
