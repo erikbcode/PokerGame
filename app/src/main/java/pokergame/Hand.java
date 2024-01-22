@@ -33,4 +33,8 @@ public class Hand {
     str.append(this.hand.get(1)).toString();
     return str.toString();
   }
+
+  public List<Card> getCards() {
+    return this.hand;
+  }
 }
