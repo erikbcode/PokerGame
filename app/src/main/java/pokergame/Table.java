@@ -4,14 +4,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
 
-import pokergame.exceptions.TooManyPlayersException;
 
 import java.util.ArrayList;
 
 public class Table {
   private Deck deck;
-  private Dealer dealer;
-  private int pot;
   private Set<Player> seatedPlayers;
   private Set<Player> activePlayers;
   private final int MAX_PLAYERS = 9;
@@ -19,21 +16,16 @@ public class Table {
   private int smallBlindPosition;
   private int bigBlindPosition;
   private List<Card> boardCards;
-
+  private int pot;
 
   public Table() {
     this.deck = new Deck();
     this.pot = 0;
-    this.dealer = null;
     this.seatedPlayers = new HashSet<Player>();
     this.activePlayers = new HashSet<Player>();
     this.smallBlindPosition = 0;
     this.bigBlindPosition = 1;
     this.boardCards = new ArrayList<Card>();
-  }
-
-  public void setDealer(Dealer dealer) {
-    this.dealer = dealer;
   }
 
   public void addSeatedPlayer(Player player) {
