@@ -4,6 +4,7 @@
  * This generated file contains a sample Java application project to get you started.
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.5/userguide/building_java_projects.html in the Gradle documentation.
  */
+ 
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
@@ -18,6 +19,9 @@ repositories {
 dependencies {
     // Use TestNG framework, also requires calling test.useTestNG() below
     testImplementation(libs.testng)
+
+    // Mockito
+    testImplementation("org.mockito:mockito-core:3.+")
 
     // This dependency is used by the application.
     implementation(libs.guava)
