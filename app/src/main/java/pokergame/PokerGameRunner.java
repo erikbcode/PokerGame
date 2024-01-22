@@ -8,9 +8,8 @@ public class PokerGameRunner {
   public static void main (String[] args) {
 
     Table table = new Table();
-    Dealer dealer = new Dealer("John");
+    Dealer dealer = new Dealer();
 
-    table.setDealer(dealer);
     dealer.sitAtTable(table);
 
     AIPlayer aiPlayer1 = new AIPlayer();
